@@ -1,0 +1,14 @@
+/* public/style.css */
+:root { --bg:#f5f7fb; --card:#fff; --accent:#2061f5; --muted:#6b7280; }
+body { font-family: Inter, system-ui, Arial; background:var(--bg); margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; }
+.container { width: 100%; max-width:900px; margin: 40px auto; padding: 20px; }
+h2 { text-align:center; margin-bottom:20px; }
+.card { background:var(--card); padding:18px; border-radius:10px; box-shadow:0 6px 18px rgba(20,20,50,0.06); margin:12px 0; }
+input { display:block; width:100%; padding:10px 12px; margin:8px 0 12px; border-radius:6px; border:1px solid #e6e9ef; box-sizing:border-box; }
+button { background:var(--accent); color:#fff; border:none; padding:10px 14px; border-radius:8px; cursor:pointer; }
+.msg { color: #b91c1c; margin-top:6px; min-height:18px; font-size:0.9rem; }
+@media (min-width:900px) {
+  .card { display:inline-block; width:48%; vertical-align:top; margin-right:2%; }
+  .card:last-child { margin-right:0; }
+}
+

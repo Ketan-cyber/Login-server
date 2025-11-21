@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Login / Register</title>
+  <link rel="stylesheet" href="/style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h2>DevOps Demo — Login / Register</h2>
+
+    <div class="card">
+      <form id="loginForm">
+        <h3>Login</h3>
+        <input id="loginUser" placeholder="Username" required />
+        <input id="loginPass" placeholder="Password" type="password" required />
+        <button type="submit">Login</button>
+        <div id="loginMsg" class="msg"></div>
+      </form>
+    </div>
+
+    <div class="card">
+      <form id="regForm">
+        <h3>Register</h3>
+        <input id="regUser" placeholder="Username" required />
+        <input id="regPass" placeholder="Password (min 6 chars)" type="password" required />
+        <button type="submit">Register</button>
+        <div id="regMsg" class="msg"></div>
+      </form>
+    </div>
+
+  </div>
+
+  <script src="/main.js"></script>
+</body>
+</html>
+

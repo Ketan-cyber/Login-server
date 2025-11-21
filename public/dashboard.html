@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h2>Dashboard</h2>
+    <div id="welcome"></div>
+
+    <div class="card">
+      <p>This is a protected dashboard. Add features here later (user settings, attendance, etc.).</p>
+      <button id="logoutBtn">Logout</button>
+    </div>
+
+    <div style="margin-top:20px;color:#666;font-size:0.9rem;">
+      Deployed with Docker on EC2 — great for your resume!
+    </div>
+  </div>
+
+  <script>
+    async function load() {
+      try {
+        const res = await fetch('/api/me');
+        if (!res.ok) return window.location = '/';
+        const data = await res.json();
+        document.getElementById('welcome').innerText = 'Hello, ' + data.user.username + ' 👋';
+      } catch (e) {
+        window.location = '/';
+      }
+    }
+    document.getElementById('logoutBtn').addEventListener('click', async () => {
+      await fetch('/api/logout', { method: 'POST' });
+      window.location = '/';
+    });
+    load();
+  </script>
+</body>
+</html>
+
