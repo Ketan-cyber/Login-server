@@ -1,38 +1,75 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Login / Register</title>
-  <link rel="stylesheet" href="/style.css"/>
+  <meta charset="UTF-8">
+  <title>Login & Signup</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h2>DevOps Demo — Login / Register</h2>
 
-    <div class="card">
-      <form id="loginForm">
-        <h3>Login</h3>
-        <input id="loginUser" placeholder="Username" required />
-        <input id="loginPass" placeholder="Password" type="password" required />
-        <button type="submit">Login</button>
-        <div id="loginMsg" class="msg"></div>
-      </form>
+<section class="user">
+  <div class="user_options-container">
+
+    <div class="user_options-text">
+      <div class="user_options-unregistered">
+        <h2 class="user_unregistered-title">Don't have an account?</h2>
+        <p class="user_unregistered-text">Create your account now.</p>
+        <button class="user_unregistered-signup" id="signup-button">Sign up</button>
+      </div>
+
+      <div class="user_options-registered">
+        <h2 class="user_registered-title">Have an account?</h2>
+        <p class="user_registered-text">Login to continue.</p>
+        <button class="user_registered-login" id="login-button">Login</button>
+      </div>
     </div>
 
-    <div class="card">
-      <form id="regForm">
-        <h3>Register</h3>
-        <input id="regUser" placeholder="Username" required />
-        <input id="regPass" placeholder="Password (min 6 chars)" type="password" required />
-        <button type="submit">Register</button>
-        <div id="regMsg" class="msg"></div>
-      </form>
-    </div>
+    <div class="user_options-forms" id="user_options-forms">
 
+      <!-- LOGIN FORM -->
+      <div class="user_forms-login">
+        <h2 class="forms_title">Login</h2>
+        <form onsubmit="return loginUser()">
+          <div class="forms_field">
+            <input type="email" id="loginEmail" placeholder="Email" required>
+          </div>
+
+          <div class="forms_field">
+            <input type="password" id="loginPassword" placeholder="Password" required>
+          </div>
+
+          <div class="forms_buttons">
+            <button type="submit" class="forms_buttons-action">Log In</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- SIGNUP FORM -->
+      <div class="user_forms-signup">
+        <h2 class="forms_title">Sign Up</h2>
+        <form onsubmit="return registerUser()">
+          <div class="forms_field">
+            <input type="text" id="signupName" placeholder="Full Name" required>
+          </div>
+
+          <div class="forms_field">
+            <input type="email" id="signupEmail" placeholder="Email" required>
+          </div>
+
+          <div class="forms_field">
+            <input type="password" id="signupPassword" placeholder="Password" required>
+          </div>
+
+          <div class="forms_buttons">
+            <button type="submit" class="forms_buttons-action">Sign Up</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
   </div>
+</section>
 
-  <script src="/main.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
-
