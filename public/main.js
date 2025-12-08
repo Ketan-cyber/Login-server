@@ -1,34 +1,40 @@
-// public/main.js
-async function postJson(url, body) {
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type':'application/json' },
-    body: JSON.stringify(body)
-  });
-  return res;
+const signupButton = document.getElementById('signup-button');
+const loginButton = document.getElementById('login-button');
+const userForms = document.getElementById('user_options-forms');
+
+signupButton.addEventListener('click', () => {
+  userForms.classList.remove('bounceRight');
+  userForms.classList.add('bounceLeft');
+
+  document.querySelector('.user_forms-login').style.display = "none";
+  document.querySelector('.user_forms-signup').style.display = "block";
+});
+
+loginButton.addEventListener('click', () => {
+  userForms.classList.remove('bounceLeft');
+  userForms.classList.add('bounceRight');
+
+  document.querySelector('.user_forms-signup').style.display = "none";
+  document.querySelector('.user_forms-login').style.display = "block";
+});
+
+// ✅ REGISTER
+function registerUser() {
+  localStorage.setItem("email", signupEmail.value);
+  localStorage.setItem("password", signupPassword.value);
+  alert("Signup successful!");
+  return false;
 }
 
-document.getElementById('regForm').addEventListener('submit', async e => {
-  e.preventDefault();
-  const user = document.getElementById('regUser').value.trim();
-  const pass = document.getElementById('regPass').value;
-  const msg = document.getElementById('regMsg');
-  msg.innerText = '';
-  const res = await postJson('/api/register', { username: user, password: pass });
-  const data = await res.json();
-  if (!res.ok) msg.innerText = data.error || 'Registration failed';
-  else window.location = '/dashboard';
-});
+// ✅ LOGIN
+function loginUser() {
+  let email = document.getElementById("loginEmail").value;
+  let pass = document.getElementById("loginPassword").value;
 
-document.getElementById('loginForm').addEventListener('submit', async e => {
-  e.preventDefault();
-  const user = document.getElementById('loginUser').value.trim();
-  const pass = document.getElementById('loginPass').value;
-  const msg = document.getElementById('loginMsg');
-  msg.innerText = '';
-  const res = await postJson('/api/login', { username: user, password: pass });
-  const data = await res.json();
-  if (!res.ok) msg.innerText = data.error || 'Login failed';
-  else window.location = '/dashboard';
-});
-
+  if (email === localStorage.getItem("email") && pass === localStorage.getItem("password")) {
+    window.location.href = "dashboard.html";
+  } else {
+    alert("Invalid login");
+  }
+  return false;
+}
