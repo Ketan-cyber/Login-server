@@ -1,43 +1,35 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Dashboard</title>
-  <link rel="stylesheet" href="/style.css"/>
+  <style>
+    body {
+      font-family: Arial;
+      background: #222;
+      color: white;
+      text-align: center;
+      padding-top: 150px;
+    }
+    button {
+      padding: 10px 25px;
+      background: tomato;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h2>Dashboard</h2>
-    <div id="welcome"></div>
 
-    <div class="card">
-      <p>This is a protected dashboard. Add features here later (user settings, attendance, etc.).</p>
-      <button id="logoutBtn">Logout</button>
-    </div>
+<h1>Welcome to Dashboard</h1>
 
-    <div style="margin-top:20px;color:#666;font-size:0.9rem;">
-      Deployed with Docker on EC2 — great for your resume!
-    </div>
-  </div>
+<button onclick="logout()">Logout</button>
 
-  <script>
-    async function load() {
-      try {
-        const res = await fetch('/api/me');
-        if (!res.ok) return window.location = '/';
-        const data = await res.json();
-        document.getElementById('welcome').innerText = 'Hello, ' + data.user.username + ' 👋';
-      } catch (e) {
-        window.location = '/';
-      }
-    }
-    document.getElementById('logoutBtn').addEventListener('click', async () => {
-      await fetch('/api/logout', { method: 'POST' });
-      window.location = '/';
-    });
-    load();
-  </script>
+<script>
+  function logout() {
+    window.location.href = "index.html";
+  }
+</script>
+
 </body>
 </html>
-
