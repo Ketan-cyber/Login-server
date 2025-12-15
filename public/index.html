@@ -1,75 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Login & Signup</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Signup</title>
+
+    <!-- Icons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<section class="user">
-  <div class="user_options-container">
+<div class="container">
+    <!-- Login -->
+    <div class="form-box login">
+        <form>
+            <h1>Login</h1>
 
-    <div class="user_options-text">
-      <div class="user_options-unregistered">
-        <h2 class="user_unregistered-title">Don't have an account?</h2>
-        <p class="user_unregistered-text">Create your account now.</p>
-        <button class="user_unregistered-signup" id="signup-button">Sign up</button>
-      </div>
+            <div class="input-box">
+                <input type="text" placeholder="Username" required>
+                <i class='bx bxs-user'></i>
+            </div>
 
-      <div class="user_options-registered">
-        <h2 class="user_registered-title">Have an account?</h2>
-        <p class="user_registered-text">Login to continue.</p>
-        <button class="user_registered-login" id="login-button">Login</button>
-      </div>
+            <div class="input-box">
+                <input type="password" placeholder="Password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+
+            <div class="forgot-link">
+                <a href="#">Forgot Password?</a>
+            </div>
+
+            <button class="btn">Login</button>
+        </form>
     </div>
 
-    <div class="user_options-forms" id="user_options-forms">
+    <!-- Register -->
+    <div class="form-box register">
+        <form>
+            <h1>Register</h1>
 
-      <!-- LOGIN FORM -->
-      <div class="user_forms-login">
-        <h2 class="forms_title">Login</h2>
-        <form onsubmit="return loginUser()">
-          <div class="forms_field">
-            <input type="email" id="loginEmail" placeholder="Email" required>
-          </div>
+            <div class="input-box">
+                <input type="text" placeholder="Username" required>
+                <i class='bx bxs-user'></i>
+            </div>
 
-          <div class="forms_field">
-            <input type="password" id="loginPassword" placeholder="Password" required>
-          </div>
+            <div class="input-box">
+                <input type="email" placeholder="Email" required>
+                <i class='bx bxs-envelope'></i>
+            </div>
 
-          <div class="forms_buttons">
-            <button type="submit" class="forms_buttons-action">Log In</button>
-          </div>
+            <div class="input-box">
+                <input type="password" placeholder="Password" required>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+
+            <button class="btn">Register</button>
         </form>
-      </div>
-
-      <!-- SIGNUP FORM -->
-      <div class="user_forms-signup">
-        <h2 class="forms_title">Sign Up</h2>
-        <form onsubmit="return registerUser()">
-          <div class="forms_field">
-            <input type="text" id="signupName" placeholder="Full Name" required>
-          </div>
-
-          <div class="forms_field">
-            <input type="email" id="signupEmail" placeholder="Email" required>
-          </div>
-
-          <div class="forms_field">
-            <input type="password" id="signupPassword" placeholder="Password" required>
-          </div>
-
-          <div class="forms_buttons">
-            <button type="submit" class="forms_buttons-action">Sign Up</button>
-          </div>
-        </form>
-      </div>
-
     </div>
-  </div>
-</section>
 
-<script src="main.js"></script>
+    <!-- Toggle -->
+    <div class="toggle-box">
+        <div class="toggle-panel toggle-left">
+            <h1>Hello, Welcome!</h1>
+            <button class="btn register-btn">Register</button>
+        </div>
+
+        <div class="toggle-panel toggle-right">
+            <h1>Welcome Back!</h1>
+            <button class="btn login-btn">Login</button>
+        </div>
+    </div>
+</div>
+
+<!-- JS -->
+<script src="script.js"></script>
 </body>
 </html>
