@@ -1,34 +1,146 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Dashboard</title>
-  <style>
-    body {
-      font-family: Arial;
-      background: #222;
-      color: white;
-      text-align: center;
-      padding-top: 150px;
-    }
-    button {
-      padding: 10px 25px;
-      background: tomato;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>User Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Icons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: #f4f6fb;
+        }
+
+        .dashboard {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            background: #7494ec;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sidebar ul li:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Main */
+        .main {
+            flex: 1;
+            padding: 30px;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .logout {
+            background: #7494ec;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,.1);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
 
-<h1>Welcome to Dashboard</h1>
+<div class="dashboard">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>My Dashboard</h2>
+        <ul>
+            <li><i class='bx bx-home'></i> Home</li>
+            <li><i class='bx bx-user'></i> Profile</li>
+            <li><i class='bx bx-bar-chart'></i> Analytics</li>
+            <li><i class='bx bx-cog'></i> Settings</li>
+        </ul>
+    </div>
 
-<button onclick="logout()">Logout</button>
+    <!-- Main Content -->
+    <div class="main">
+        <div class="topbar">
+            <h2>Welcome, User 👋</h2>
+            <button class="logout" onclick="logout()">Logout</button>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Total Logins</h3>
+                <p>25</p>
+            </div>
+
+            <div class="card">
+                <h3>Active Sessions</h3>
+                <p>3</p>
+            </div>
+
+            <div class="card">
+                <h3>Messages</h3>
+                <p>12</p>
+            </div>
+
+            <div class="card">
+                <h3>Notifications</h3>
+                <p>5</p>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
-  function logout() {
-    window.location.href = "index.html";
-  }
+    function logout() {
+        window.location.href = "index.html";
+    }
 </script>
 
 </body>
